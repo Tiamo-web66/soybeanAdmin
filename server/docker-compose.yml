@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: soybean-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: wangbadan
+      POSTGRES_DB: soybean
+    ports:
+      - "15432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:alpine
+    container_name: soybean-redis
+    command: redis-server --requirepass wangbadan
+    ports:
+      - "16379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "wangbadan", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: soybean-admin-go
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:

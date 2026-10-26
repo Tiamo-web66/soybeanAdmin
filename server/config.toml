@@ -1,0 +1,38 @@
+# 服务器配置
+[server]
+port = 8080
+mode = "debug"  # debug, release, test
+read_timeout = 60
+write_timeout = 60
+
+# 数据库配置
+[database]
+host = "localhost"
+port = 15432
+user = "postgres"
+password = "wangbadan"
+dbname = "soybean"
+sslmode = "disable"
+max_idle = 10
+max_open = 100
+
+# Redis配置
+[redis]
+host = "localhost"
+port = 16379
+password = "wangbadan"
+db = 0
+
+# JWT配置
+[jwt]
+secret = "518d0829-4013-4ce4-8d08-294013dce4da"
+expiration = 24  # 单位：小时
+
+# 日志配置
+[log]
+level = "debug"
+filename = "logs/app.log"
+max_size = 100
+max_backups = 10
+max_age = 30
+compress = true 

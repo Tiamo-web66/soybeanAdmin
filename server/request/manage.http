@@ -1,0 +1,54 @@
+# 系统管理
+
+### 获取角色列表 -有分页
+GET {{url}}/systemManage/getRoleList?current=0&size=20
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "current": 0,
+  "size": 20
+}
+
+### 获取用户列表 -有分页
+#GET {{url}}/systemManage/getUserList?userName=&userGender=&nickName=&userPhone=&userEmail=&userStatus=&current=0&size=20
+GET {{url}}/systemManage/getUserList?current=0&size=20&userGender=1
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "current": 0,
+  "size": 20
+}
+
+### 获取所有角色
+GET {{url}}/systemManage/getAllRoles
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+### 获取菜单列表 -有分页
+GET {{url}}/systemManage/getMenuList/v2?current=0&size=20
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+### 获取所有页面组件
+GET {{url}}/systemManage/getAllPages
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+### 获取菜单树
+GET {{url}}/systemManage/getMenuTree
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}
+
+### 获取所有API
+GET {{url}}/systemManage/getAllApi
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization: {{token}}

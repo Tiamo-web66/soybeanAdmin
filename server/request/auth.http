@@ -1,0 +1,32 @@
+# Auth
+
+###  登录
+POST {{url}}/auth/login
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+
+{
+  "userName": "Soybean",
+  "password": "123456"
+}
+
+### 刷新token
+POST {{url}}/auth/refreshToken
+Content-Type: application/json
+apifoxToken: {{apiKey}}
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+
+### 获取用户信息
+GET {{url}}/auth/getUserInfo
+apifoxToken: {{apiKey}}
+Authorization:{{token}}
+
+
+### 自定义后端错误
+GET {{url}}/auth/error?code=6667&msg=自定义后端错误
+Content-Type: application/json
+apifoxToken: {{apiKey}}

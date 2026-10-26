@@ -1,7 +1,0 @@
-[submodule "web"]
-    path = web
-    url = https://github.com/soybeanjs/soybean-admin.git
-
-[submodule "server"]
-    path = server
-    url = https://github.com/WgoW/soybean-admin-go.git

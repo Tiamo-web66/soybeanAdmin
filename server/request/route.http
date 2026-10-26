@@ -1,0 +1,19 @@
+# 前端路由
+
+### 获取用户路由数据
+GET {{url}}/route/getUserRoutes
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+Authorization:{{token}}
+
+### 路由是否存在 (不需要权限)
+GET {{url}}/route/isRouteExist?routeName=manage
+apifoxToken: {{apiKey}}
+Content-Type: application/json
+#Authorization: Bearer {{token}}
+
+
+### 获取固定的路由数据(不需要权限)
+GET {{url}}/route/getConstantRoutes
+apifoxToken: {{apiKey}}
+Content-Type: application/json
