@@ -1,0 +1,11 @@
+# Local development artifacts
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files generated from the root workspace
+*.log
+logs/
+
+# Local editor settings
+.idea/
+.vscode/
